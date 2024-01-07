@@ -21,7 +21,7 @@ export default function GuardLayout({ children }: { children: ReactNode }) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (refInput.current?.value !== "123")
+    if (refInput.current?.value !== (import.meta.env.VITE_PASSWORD as string))
       setError("The password is not correct");
     else {
       setPassword(refInput.current?.value);
@@ -32,7 +32,7 @@ export default function GuardLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <Modal
-        isOpen={password !== "123"}
+        isOpen={password !== import.meta.env.VITE_PASSWORD}
         isDismissable={false}
         isKeyboardDismissDisabled={false}
         hideCloseButton
@@ -78,7 +78,7 @@ export default function GuardLayout({ children }: { children: ReactNode }) {
         </ModalContent>
       </Modal>
 
-      {password === "123" ? children : null}
+      {password === import.meta.env.VITE_PASSWORD ? children : null}
     </>
   );
 }
