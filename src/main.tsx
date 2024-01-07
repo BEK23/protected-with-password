@@ -7,6 +7,7 @@ import HomePage from "./pages/Home.tsx";
 import AboutPage from "./pages/About.tsx";
 import ContactsPage from "./pages/Contacts.tsx";
 import Layout from "./layout/Layout.tsx";
+import { NextUIProvider } from "@nextui-org/react";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <NextUIProvider>
+      <RouterProvider router={router} />
+    </NextUIProvider>
   </React.StrictMode>,
 );
