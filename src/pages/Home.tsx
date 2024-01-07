@@ -1,3 +1,3 @@
 export default function HomePage() {
-  return <div>Home Page</div>;
+  return <h1 className="animate-fade-up">Home Page</h1>;
 }
