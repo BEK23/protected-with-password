@@ -18,8 +18,6 @@ export const Header = () => {
     },
   ];
 
-  console.log("LOcation: ", location.pathname);
-
   return (
     <div className="mx-auto flex fixed justify-center w-full gap-5 sm:gap-10 py-5">
       {links.map((item) => (
