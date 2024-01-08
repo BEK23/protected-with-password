@@ -8,6 +8,7 @@ import AboutPage from "./pages/About.tsx";
 import ContactsPage from "./pages/Contacts.tsx";
 import Layout from "./layout/Layout.tsx";
 import { NextUIProvider } from "@nextui-org/react";
+import PageNotFound from "./pages/404.tsx";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/contacts",
         element: <ContactsPage />,
+      },
+      {
+        path: "*",
+        element: <PageNotFound />,
       },
     ],
   },
