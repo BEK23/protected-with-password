@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export const Header = () => {
+  const location = useLocation();
+
   const links = [
     {
       to: "/",
@@ -16,6 +18,8 @@ export const Header = () => {
     },
   ];
 
+  console.log("LOcation: ", location.pathname);
+
   return (
     <div className="mx-auto flex fixed justify-center w-full gap-5 sm:gap-10 py-5">
       {links.map((item) => (
@@ -25,7 +29,11 @@ export const Header = () => {
           className="group transition duration-300"
         >
           {item.title}
-          <span className="block max-w-0 group-hover:max-w-full transition-all ease-out duration-700 h-0.5 bg-primary rounded-full" />
+          <span
+            className={`block max-w-0 group-hover:max-w-full transition-all ease-out duration-700 h-0.5 bg-primary rounded-full ${
+              item.to === location.pathname ? "max-w-full" : ""
+            }`}
+          />
         </Link>
       ))}
     </div>
